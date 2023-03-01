@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/b2a1e6fa31.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <title>NBP Currency Exchange Rates</title>
+</head>
+<body>
+
+
+    <div class="exchange">
+        <h1 class="exchange__title">Conversion of PLN to foreign currencies</h1>
+
+        <form class="exchange__form">
+            <label class="exchange__label--currency">
+                Select a currency:
+
+                <select class="exchange__select">
+                    <option value="AUD">AUD - Australian dollar</option>
+                    <option value="CAD">CAD - Canadian dollar</option>
+                    <option value="CHF">CHF - Swiss Franc</option>
+                    <option value="CZK">CZK - Czech crown</option>
+                    <option value="EUR">EUR - Euro</option>
+                    <option value="GBP">GBP - British pound</option>
+                    <option value="HUF">HUF - Forint</option>
+                    <option value="NOK">NOK - Norwegian krone</option>
+                    <option value="SEK">SEK - Swedish krona</option>
+                    <option value="USD">USD - US dollar</option>
+                    
+                </select>
+            </label>
+
+            <label class="exchange__label--money">
+                Indicate the amount (in PLN) you want to calculate:
+
+                <input type="number" class="exchange__input" value="100">
+            </label>
+
+
+            <div class="exchange__buttons">
+                <input type="submit" class="exchange__submit" value="Send">
+                <button class="exchange__clear" type="button">Reset</button>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="currency"></div>
+
+    <footer class="footer">Created by <a href="https://github.com/Piotr-Kuras97">Piotr Kuraś</a></footer>
+
+    <script src="main.js"></script>
+    
+</body>
+</html>

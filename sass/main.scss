@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Oswald', sans-serif;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/bg-image.jpg);
+    background-attachment: fixed;
+    color: #F5FFFA;
+}
+
+
+.exchange{
+    width: 90%;
+    margin: 25px auto 0;
+    padding: 20px 20px 40px;
+    border: 1px solid white;
+    border-radius: 25px;
+    backdrop-filter: blur(3px);
+    background-color: rgba(0, 0, 0, 0.7);
+
+    @media(min-width: 1024px){
+        width: 60%;
+    }
+
+    @media(min-width: 1240px){
+        width: 40%;
+    }
+
+    &__title{
+        text-align: center;
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+
+    &__form{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+
+        .exchange__select, .exchange__input{
+            margin-top: 10px;
+            font-family: 'Roboto Mono', monospace;
+            padding: 5px 10px;
+            width: 100%;
+
+        }
+
+        .exchange__label--currency, .exchange__label--money{
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            padding-bottom: 20px;
+        }
+        .exchange__buttons{
+            display: flex;
+            .exchange__submit, .exchange__clear{
+                width: 45%;
+                align-self: center;
+                font-family: 'Roboto Mono', monospace;
+                padding: 10px 20px;
+                border: 2px solid black;
+                transition: .4s;
+                cursor: pointer;
+    
+                &:hover{
+                    border-color: white;
+                    background-color: black;
+                    color: #F5FFFA;
+                }
+            }
+
+            .exchange__clear{
+                display: none;
+                &.active{
+                    display: block;
+                    margin-left: 10%;
+                }
+            }
+        }
+    }
+}
+
+.currency{
+    width: 90%;
+    margin: 50px auto;
+
+    @media (min-width: 780px){
+        display: grid;
+        grid-template-columns:  1fr 1fr;
+        gap: 20px;
+    }
+
+    @media (min-width: 1240px){
+        grid-template-columns:  1fr 1fr 1fr;
+    }
+
+
+    &__box{
+        position: relative;
+        padding: 20px;
+        border: 1px solid white;
+        margin-bottom: 25px;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    &__name{
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    &__bid, &__ask, &__result{
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    &__date{
+        margin-top: 25px;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    &__close{
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 25px;
+    }
+}
+
+.footer{
+    position: fixed;
+    background-color: black;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    a{
+        color: blue
+    }
+}
+
+
+
