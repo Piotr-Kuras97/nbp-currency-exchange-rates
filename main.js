@@ -5,7 +5,7 @@ const clearBtn = document.querySelector(".exchange__clear")
 const showCurrencyRates = (e) => {
     e.preventDefault()
     const currency = document.querySelector(".exchange__select").value
-    const url = `http://api.nbp.pl/api/exchangerates/rates/c/${currency}/today/?format=json`
+    const url = `https://api.nbp.pl/api/exchangerates/rates/c/${currency}/today/?format=json`
 
     fetch(url)
      .then((response) => {
