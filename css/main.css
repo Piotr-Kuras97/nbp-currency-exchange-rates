@@ -8,8 +8,7 @@
 
 body {
   font-family: "Oswald", sans-serif;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url(../assets/bg-image.jpg);
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/bg-image.jpg);
+  background-image: linear-gradient(174.2deg, rgb(255, 244, 228) 7.1%, rgb(240, 246, 238) 67.4%);
   background-attachment: fixed;
   color: #F5FFFA;
 }
@@ -18,7 +17,7 @@ body {
   width: 90%;
   margin: 25px auto 0;
   padding: 20px 20px 40px;
-  border: 1px solid white;
+  border: 3px solid black;
   border-radius: 25px;
   -webkit-backdrop-filter: blur(3px);
           backdrop-filter: blur(3px);
@@ -115,8 +114,9 @@ body {
 }
 .currency__box {
   position: relative;
+  border-radius: 5px;
   padding: 20px;
-  border: 1px solid white;
+  border: 3px solid black;
   margin-bottom: 25px;
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -139,6 +139,82 @@ body {
   top: 10px;
   right: 20px;
   font-size: 25px;
+  cursor: pointer;
+}
+.currency__graph {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  border-radius: 50%;
+  color: #03C988;
+  background-color: rgb(255, 255, 255);
+  top: 10px;
+  left: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  font-size: 0;
+}
+.currency__graph.active {
+  width: 150px;
+  font-size: 15px;
+  border-radius: 30px;
+}
+.currency__graph i {
+  font-size: 25px;
+  margin-right: 5px;
+  margin-left: 7.5px;
+}
+
+.bg {
+  display: none;
+}
+.bg.active {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  display: block;
+}
+
+.graph {
+  position: fixed;
+  z-index: 2;
+  top: 10%;
+  left: 10%;
+  bottom: 10%;
+  right: 10%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 5px solid black;
+}
+.graph__canvas {
+  padding: 25px;
+}
+.graph__close {
+  position: fixed;
+  top: 12%;
+  right: 12%;
+  font-size: 25px;
+  color: black;
 }
 
 .footer {

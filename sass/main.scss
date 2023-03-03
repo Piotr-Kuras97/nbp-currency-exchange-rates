@@ -8,7 +8,8 @@
 
 body{
     font-family: 'Oswald', sans-serif;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/bg-image.jpg);
+    // background-image: linear-gradient(to bottom, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../assets/bg-image.jpg);
+    background-image: linear-gradient( 174.2deg,  rgba(255,244,228,1) 7.1%, rgba(240,246,238,1) 67.4% );
     background-attachment: fixed;
     color: #F5FFFA;
 }
@@ -18,7 +19,7 @@ body{
     width: 90%;
     margin: 25px auto 0;
     padding: 20px 20px 40px;
-    border: 1px solid white;
+    border: 3px solid black;
     border-radius: 25px;
     backdrop-filter: blur(3px);
     background-color: rgba(0, 0, 0, 0.7);
@@ -102,8 +103,9 @@ body{
 
     &__box{
         position: relative;
+        border-radius: 5px;
         padding: 20px;
-        border: 1px solid white;
+        border: 3px solid black;
         margin-bottom: 25px;
         background-color: rgba(0, 0, 0, 0.5);
     }
@@ -130,8 +132,79 @@ body{
         top: 10px;
         right: 20px;
         font-size: 25px;
+        cursor: pointer;
+    }
+
+    &__graph{
+        display: flex;
+        align-items: center;
+        position: absolute;
+        border-radius: 50%;
+        color: #03C988;
+        background-color: rgba(255, 255, 255, 1);
+        top: 10px;
+        left: 20px;
+        font-size: 15px;
+        cursor: pointer;
+        transition: .4s;
+        width: 40px;
+        height: 40px;
+        overflow: hidden;
+        font-size: 0;
+
+        &.active{
+            width: 150px;
+            font-size: 15px;
+            border-radius: 30px;
+        }
+        i{
+            font-size: 25px;
+            margin-right: 5px;
+            margin-left: 7.5px;
+        }
     }
 }
+.bg{
+    display: none;
+
+    &.active{
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: fixed;
+        display: block;
+    }
+}
+.graph{
+    position: fixed;
+    z-index: 2;
+    top: 10%;
+    left: 10%;
+    bottom: 10%;
+    right: 10%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+   
+
+    &__canvas{
+        padding: 25px;
+    }
+
+    &__close{
+        position: fixed;
+        top: 12%;
+        right: 12%;
+        font-size: 25px;
+        color: black;
+    }
+
+}
+
 
 .footer{
     position: fixed;
