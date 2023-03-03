@@ -24,7 +24,7 @@ const showCurrencyRates = (e) => {
 const currencyDetails = (data) => {
     i++
     const currency = document.querySelector(".exchange__select").value
-    const urlGraph = `http://api.nbp.pl/api/exchangerates/rates/c/${currency}/last/10/?format=json`
+    const urlGraph = `https://api.nbp.pl/api/exchangerates/rates/c/${currency}/last/10/?format=json`
     fetch(urlGraph)
     .then((response) => {
        if (response.status !== 200){
