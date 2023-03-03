@@ -100,6 +100,8 @@ body {
 .currency {
   width: 90%;
   margin: 50px auto;
+  position: relative;
+  z-index: 1;
 }
 @media (min-width: 780px) {
   .currency {
@@ -115,6 +117,7 @@ body {
 }
 .currency__box {
   position: relative;
+  z-index: auto;
   border-radius: 5px;
   padding: 20px;
   border: 3px solid black;
@@ -123,12 +126,12 @@ body {
 }
 .currency__name {
   text-align: center;
-  font-size: 20px;
+  font-size: 24px;
   margin-bottom: 10px;
 }
 .currency__bid, .currency__ask, .currency__result {
   margin-bottom: 5px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .currency__date {
   margin-top: 25px;
@@ -184,13 +187,14 @@ body {
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
   position: fixed;
   display: block;
 }
 
 .graph {
-  position: fixed;
-  z-index: 2;
+  position: absolute;
+  z-index: 999;
   top: 10%;
   left: 10%;
   bottom: 10%;
@@ -208,14 +212,20 @@ body {
   border: 5px solid black;
 }
 .graph__canvas {
-  padding: 25px;
+  position: relative;
+  padding: 10px;
 }
 .graph__close {
   position: fixed;
   top: 12%;
-  right: 12%;
+  right: 15%;
   font-size: 25px;
   color: black;
+}
+@media (min-width: 1024px) {
+  .graph__close {
+    right: 12%;
+  }
 }
 
 .footer {

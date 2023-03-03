@@ -90,6 +90,8 @@ body{
 .currency{
     width: 90%;
     margin: 50px auto;
+    position: relative;
+    z-index: 1;
 
     @media (min-width: 780px){
         display: grid;
@@ -104,6 +106,7 @@ body{
 
     &__box{
         position: relative;
+        z-index: auto;
         border-radius: 5px;
         padding: 20px;
         border: 3px solid black;
@@ -113,13 +116,13 @@ body{
 
     &__name{
         text-align: center;
-        font-size: 20px;
+        font-size: 24px;
         margin-bottom: 10px;
     }
 
     &__bid, &__ask, &__result{
         margin-bottom: 5px;
-        font-size: 14px;
+        font-size: 16px;
     }
 
     &__date{
@@ -173,14 +176,15 @@ body{
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: rgba(0, 0, 0, .7);
+        z-index: 999;
         position: fixed;
         display: block;
     }
 }
 .graph{
-    position: fixed;
-    z-index: 2;
+    position: absolute;
+    z-index: 999;
     top: 10%;
     left: 10%;
     bottom: 10%;
@@ -193,15 +197,20 @@ body{
    
 
     &__canvas{
-        padding: 25px;
+        position: relative;
+        padding: 10px;
     }
 
     &__close{
         position: fixed;
         top: 12%;
-        right: 12%;
+        right: 15%;
         font-size: 25px;
         color: black;
+
+        @media (min-width: 1024px){
+            right: 12%;
+        }
     }
 
 }

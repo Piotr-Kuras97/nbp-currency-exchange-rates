@@ -1,8 +1,11 @@
+// variables
 const formSubmit = document.querySelector(".exchange__form")
 const clearBtn = document.querySelector(".exchange__clear")
 let i = 0
 let graphArray = []
 let graphShowIcon = []
+
+// first fetch to get data from nbp api
 
 const showCurrencyRates = (e) => {
     e.preventDefault()
@@ -21,6 +24,8 @@ const showCurrencyRates = (e) => {
 
 }
 
+// modify DOM with nbp api data and second fetch to get nbp api to graph
+
 const currencyDetails = (data) => {
     i++
     const currency = document.querySelector(".exchange__select").value
@@ -33,16 +38,18 @@ const currencyDetails = (data) => {
            return response.json()
        }
     })
-    .then(data => createGraph(data.rates))
+    .then(data => createGraph(data))
+
+    // variables to modify DOM
 
     const moneyToCalc = document.querySelector(".exchange__input").value
-    
     const currencyCode = data.code;
     const currencyBid = data.rates[0].bid
     const currencyAsk = data.rates[0].ask
     const currencyDate = data.rates[0].effectiveDate
-
     const resultMoney = (moneyToCalc / currencyAsk).toFixed(2)
+
+    // create new element 
 
     const divInfo = document.createElement("div")
     divInfo.classList = "currency__box"
@@ -65,6 +72,7 @@ const currencyDetails = (data) => {
         </div>
     `
     
+    
     document.querySelector(".currency").appendChild(divInfo)
 
     if(document.querySelector(".currency").innerHTML !== ""){
@@ -76,7 +84,7 @@ const currencyDetails = (data) => {
 
     currencyClose.forEach((item, index) => {
         item.addEventListener("click", () => {
-            currencyBox[index].remove() 
+            currencyBox[index].remove() ;
         })
     })
 
@@ -103,6 +111,7 @@ clearBtn.addEventListener("click", () => {
 
 const createGraph = (data) => {
 
+
     console.log(data);
     
 
@@ -111,22 +120,26 @@ const createGraph = (data) => {
     new Chart(ctx, {
     type: 'line',
     data: {
-        labels: [data[0].effectiveDate, data[2].effectiveDate, data[2].effectiveDate, data[3].effectiveDate, data[4].effectiveDate, data[5].effectiveDate, data[6].effectiveDate, data[7].effectiveDate, data[8].effectiveDate, data[9].effectiveDate],
+        labels: [data.rates[0].effectiveDate, data.rates[1].effectiveDate, data.rates[2].effectiveDate, data.rates[3].effectiveDate, data.rates[4].effectiveDate, data.rates[5].effectiveDate, data.rates[6].effectiveDate, data.rates[7].effectiveDate, data.rates[8].effectiveDate, data.rates[9].effectiveDate],
         datasets: [{
-        label: 'Average currency sales',
-        data: [data[0].ask, data[1].ask, data[2].ask, data[3].ask, data[4].ask, data[5].ask, data[6].ask, data[7].ask, data[8].ask,data[9].ask],
-        borderWidth: 1
-        }]
+        label: `Average currency sales of ${data.code}`,
+        data: [data.rates[0].ask, data.rates[1].ask, data.rates[2].ask, data.rates[3].ask, data.rates[4].ask, data.rates[5].ask, data.rates[6].ask, data.rates[7].ask, data.rates[8].ask,data.rates[9].ask],
+        borderWidth: 3,
+        borderColor: 'red',
+        }],
+     
     },
     options: {
         scales: {
         y: {
             beginAtZero: false
-        }
-        }
-    }
+            }
+        },
+    },
     });
 }
+
+// add evenet listeners
 
 const showGraph = (i) => {
     graphArray[i].classList.add("active");
